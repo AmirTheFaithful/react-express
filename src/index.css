@@ -1,0 +1,25 @@
+:root {
+  --blue: #021030;
+  --black: #101016;
+  --dark: #121212;
+  --gray: #1f1f1f;
+  --light-gray: #2c2f2c;
+  --lime: #10a925;
+  --salad: #24c424;
+  --leaf: #0cac0c;
+  --dark-green: #328632;
+  --light: #bfbfbf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+}
