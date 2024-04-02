@@ -37,11 +37,13 @@ const Form: FC = (): ReactElement => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputsGenerator handler={handleChange} />
+    <main>
+      <form onSubmit={handleSubmit}>
+        <InputsGenerator handler={handleChange} />
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
   );
 };
 
