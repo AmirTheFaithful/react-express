@@ -6,17 +6,18 @@ type Props = {
 
 const InputsGenerator: FC<Props> = ({ handler }): ReactElement => {
   // Just labels for generating input fields
-  const fields: Array<string> = ["firstname", "lastname"];
+  const fields: Array<string> = ["title", "message"];
 
   return (
     <Fragment>
       {fields.map(
-        (field: string): ReactElement => (
+        (field: string, index: number): ReactElement => (
           <input
             type="text"
             name={field}
             placeholder={field}
             onChange={handler}
+            key={index}
           />
         )
       )}

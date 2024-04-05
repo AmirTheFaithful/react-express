@@ -7,20 +7,22 @@ import {
   FormEventHandler,
   FormEvent,
 } from "react";
+import axios, { AxiosResponse } from "axios";
 
 import InputsGenerator from "./_InputsGenerator";
+import List from "../comments/List";
 
 import "./form.css";
 
 interface Data {
-  firstname: string;
-  lastname: string;
+  title: string;
+  message: string;
 }
 
 const Form: FC = (): ReactElement => {
   const [data, setData] = useState<Data>({
-    firstname: "",
-    lastname: "",
+    title: "",
+    message: "",
   });
 
   const handleChange: ChangeEventHandler = (
@@ -32,8 +34,9 @@ const Form: FC = (): ReactElement => {
 
   const handleSubmit: FormEventHandler = (event: FormEvent): void => {
     event.preventDefault();
-
-    alert(`${data.firstname}\n${data.lastname}`);
+    axios
+      .post("http://localhost:2000/comments", data)
+      .then((response: AxiosResponse) => setData(response.data));
   };
 
   return (
@@ -43,6 +46,8 @@ const Form: FC = (): ReactElement => {
 
         <button type="submit">Submit</button>
       </form>
+
+      <List />
     </main>
   );
 };
