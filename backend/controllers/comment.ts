@@ -7,6 +7,7 @@ import {
   deleteCommentById,
 } from "../db/methods/comment";
 
+// A simple logger function that have to be callen in ever catch block
 const handleServersideError = (name: string): void => {
   handleServersideError(`Something went wrong with "${name}" controller.`);
 };
@@ -62,6 +63,7 @@ export const createComment = async (
     // Check for required title and message
     const { title, message } = req.body;
 
+    // If there's no title or message - return invalid request message
     if (!title) {
       return res
         .status(400)
@@ -74,6 +76,7 @@ export const createComment = async (
         .end();
     }
 
+    // Create a new comment object, save it in the db and return success response message
     await createNewComment({ title, message });
 
     return res.status(201).json({ message: "Successfully posted." }).end();
@@ -113,10 +116,6 @@ export const updateComment = async (
     // Copy present message for later checkings
     const oldMessage: string = comment.message!;
 
-    // Save changes
-    comment.message = message;
-    await comment.save();
-
     // Check the difference between changes
     if (comment.message === oldMessage) {
       // If there's no difference between changes - return fail response message
@@ -127,7 +126,11 @@ export const updateComment = async (
         .end();
     }
 
-    // If there's a difference between new message and old one - return success response
+    // Save changes
+    comment.message = message;
+    await comment.save();
+
+    // If this code is reachable - means that message is updated and the changes was saved, hence return success message
     return res
       .status(201)
       .json({
@@ -150,7 +153,6 @@ export const deleteComment = async (
   res: Response
 ): Promise<Response> => {
   try {
-    console.log("hi");
     const { id } = req.params;
 
     const comment = getCommentById(id);
@@ -159,6 +161,7 @@ export const deleteComment = async (
       return res.status(404).json({ message: "Comment not found." }).end();
     }
 
+    // Check for successful deletion
     const deletionResult = await deleteCommentById(id);
 
     if (!deletionResult) {
