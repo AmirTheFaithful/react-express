@@ -5,6 +5,7 @@ import {
   getComments,
   createComment,
   updateComment,
+  updateCommentPartially,
   deleteComment,
 } from "../../controllers/comment";
 
@@ -14,5 +15,6 @@ export default (router: Router): void => {
 
   router.post("/comments", createComment);
   router.put("/comments/:id", updateComment);
+  router.patch("/comments/:id", updateCommentPartially);
   router.delete("/comments/:id", deleteComment);
 };
