@@ -7,11 +7,9 @@ import {
   updateCommentById,
   deleteCommentById,
 } from "../db/methods/comment";
+import { handleServersideError } from "../helpers/errors/server";
 
-// A simple logger function that have to be callen in ever catch block
-const handleServersideError = (name: string): void => {
-  handleServersideError(`Something went wrong with "${name}" controller.`);
-};
+import { InsertionData } from "../server";
 
 // GET
 export const getComments = async (
@@ -64,24 +62,19 @@ export const createComment = async (
   res: Response
 ): Promise<Response> => {
   try {
-    // Check for required title and message
-    const { title, message } = req.body;
+    // Check for required data for new comment
+    const { newValues }: InsertionData = req.body;
 
     // If there's no title or message - return invalid request message
-    if (!title) {
+    if (!newValues) {
       return res
         .status(400)
-        .json({ message: "Title of the comment must be provided." })
-        .end();
-    } else if (!message) {
-      return res
-        .status(400)
-        .json({ message: "Message of the comment must be provided." })
+        .json({ message: "Data for new comment must be provided." })
         .end();
     }
 
     // Create a new comment object, save it in the db and return success response message
-    await createNewComment({ title, message });
+    await createNewComment(newValues);
 
     return res.status(201).json({ message: "Successfully posted." }).end();
   } catch (error: any) {
@@ -108,9 +101,9 @@ export const updateComment = async (
     }
 
     // Next, check for new message in the request's body
-    const { modificationData } = req.body;
+    const { newValues }: InsertionData = req.body;
 
-    if (!modificationData) {
+    if (!newValues) {
       // If new data wasn't provided - return fail message
       return res
         .status(400)
@@ -119,7 +112,7 @@ export const updateComment = async (
     }
 
     // Perform modification by updating all comment properties, even if they are equal
-    Object.assign(comment, modificationData);
+    Object.assign(comment, newValues);
 
     // Save changes
     await comment.save();
@@ -158,17 +151,17 @@ export const updateCommentPartially = async (
     }
 
     // Now, if the comment exists - get modification data from request's body
-    const { modificationData } = req.body;
+    const { newValues } = req.body;
 
     // If needed data hasn't provided
-    if (!modificationData) {
+    if (!newValues) {
       return res
         .status(400)
         .json({ message: "Modification values missing." })
         .end();
     }
 
-    await updateCommentById(id, modificationData);
+    await updateCommentById(id, newValues);
     await comment.save();
 
     return res.status(200).json({ message: "Updated successfully." }).end();

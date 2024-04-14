@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
 
 import CommentCard from "./CommentCard";
 
-import "./list.css";
+import "../../styles/components/comments/list";
 
 interface Comment {
   title: string;

@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
 
-import "./commentCard.css";
+import "../../styles/components/commentCard.scss";
 
 interface Comment {
   title: string;

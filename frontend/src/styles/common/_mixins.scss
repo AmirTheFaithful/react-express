@@ -1,0 +1,24 @@
+@use "./variables";
+
+/* Mixins */
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin centerFlex($direction) {
+  @include flex($direction);
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin addShadow($blur) {
+  box-shadow: 4px 6px $blur #c4fa;
+}
+
+@mixin avatar($size) {
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+}

@@ -1,0 +1,60 @@
+@import "../../common";
+
+.comment-card {
+  // Make it a column flexbox
+  @include flex(column);
+
+  // Add a standard shadow
+  @include addShadow(18px);
+
+  color: $text-light;
+  padding: 4px $primary-size;
+  background-image: linear-gradient(to bottom right, #c3afc6, #daa0fa);
+
+  width: 30rem;
+  height: 15rem;
+  border-radius: $primary-size;
+}
+
+.info {
+  @include flex(row);
+
+  align-items: center;
+  column-gap: $primary-size;
+
+  .avatar {
+    // Just add rounded styled
+    @include avatar(60px);
+  }
+}
+
+.metrics {
+  @include flex(row);
+
+  column-gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  .username {
+    font-family: Roboto;
+  }
+
+  .post-date {
+    opacity: 0.6;
+    font-size: 24px;
+    font-style: italic;
+    font-family: MuseoModerno;
+  }
+}
+
+.contents {
+  @include centerFlex(null);
+
+  .message {
+    font-size: 26px;
+    font-weight: 600;
+    font-family: "Open Sans";
+  }
+}
