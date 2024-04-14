@@ -10,9 +10,9 @@ import {
 import axios, { AxiosResponse } from "axios";
 
 import InputsGenerator from "./_InputsGenerator";
-import List from "../comments/List";
+import List from "../comment/List";
 
-import "./form.css";
+import "../../styles/components/form.scss";
 
 interface Data {
   title: string;
@@ -34,9 +34,9 @@ const Form: FC = (): ReactElement => {
 
   const handleSubmit: FormEventHandler = (event: FormEvent): void => {
     event.preventDefault();
-    axios
-      .post("http://localhost:2000/comments", data)
-      .then((response: AxiosResponse) => setData(response.data));
+    // axios
+    //   .post("http://localhost:2000/comments", data)
+    //   .then((response: AxiosResponse) => setData(response.data));
   };
 
   return (

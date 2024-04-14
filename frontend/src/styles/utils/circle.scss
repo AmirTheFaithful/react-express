@@ -1,0 +1,31 @@
+@keyframes blob {
+  0% {
+    transform: translateX(24px);
+    animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+
+  25% {
+    transform: translateY(24px);
+    animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+
+  75% {
+    transform: translateY(0px);
+    animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+
+  100% {
+    transform: translateX(24px);
+    animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+}
+
+.circle {
+  border-radius: 100%;
+
+  animation: blob 6s infinite;
+}

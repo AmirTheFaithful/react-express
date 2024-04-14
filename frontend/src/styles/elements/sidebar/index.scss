@@ -1,0 +1,44 @@
+@use "../../common";
+
+@import "./logo.scss";
+
+.sidebar {
+  position: absolute;
+
+  width: 6vw;
+  height: 100vh;
+
+  transition-duration: 0.4s;
+  transition-property: width;
+  transition-timing-function: ease-in-out;
+
+  overflow-x: hidden;
+
+  #{&}-background {
+    @include common.flex(column);
+
+    justify-content: space-between;
+
+    height: 100%;
+  }
+
+  #{&}-contents {
+    backdrop-filter: blur(26px);
+    background-color: rgba(200, 225, 255, 0.3);
+
+    height: 100%;
+  }
+
+  & > div {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &:hover {
+    width: 6vw * 3;
+  }
+}
