@@ -13,12 +13,17 @@
   justify-content: center;
 }
 
-@mixin addShadow($blur) {
-  box-shadow: 4px 6px $blur #c4fa;
+@mixin addShadow($blur, $color) {
+  box-shadow: 4px 6px $blur $color;
 }
 
 @mixin avatar($size) {
   width: $size;
   height: $size;
   border-radius: 100%;
+}
+
+@mixin glass($blur, $color, $opacity) {
+  backdrop-filter: blur($blur);
+  background-color: $color / $opacity;
 }

@@ -1,0 +1,13 @@
+/* Edge corner positioning */
+$edge: -0.4rem;
+
+.badge {
+  position: absolute;
+
+  top: $edge;
+  right: $edge;
+
+  padding: 0.1rem 0.4rem;
+  font-family: Lato;
+  border-radius: 50%;
+}

@@ -1,6 +1,7 @@
 @use "../../common";
 
-@import "./logo.scss";
+@import "./logo";
+@import "./item";
 
 .sidebar {
   position: absolute;
@@ -23,10 +24,14 @@
   }
 
   #{&}-contents {
+    @include common.flex(column);
+    row-gap: 6rem;
+
     backdrop-filter: blur(26px);
     background-color: rgba(200, 225, 255, 0.3);
 
     height: 100%;
+    padding: common.$primary-size;
   }
 
   & > div {

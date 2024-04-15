@@ -1,0 +1,16 @@
+@use "../../common";
+
+.sidebar-item {
+  @include common.addShadow(12px, #747474);
+  @include common.centerFlex(column);
+
+  color: common.$text-light;
+  padding: common.$primary-size;
+  border-radius: common.$primary-size;
+}
+
+.icon {
+  position: relative;
+
+  display: inline-block;
+}
