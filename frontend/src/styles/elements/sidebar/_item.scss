@@ -11,6 +11,14 @@
   padding: common.$primary-size;
   border-radius: common.$primary-size;
   backdrop-filter: blur(40px);
+
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sidebar-item:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 16px #b4b4b4;
+  background-color: rgba(200, 225, 255, 0.8);
 }
 
 .icon {

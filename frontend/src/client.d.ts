@@ -12,3 +12,6 @@ interface UserObject {
   avatarUrl: string;
   gender?: string;
 }
+
+// Used to type arrow function components which are small parts of bigger elements
+type Component<PropsType = undefined> = (props?: PropsType) => ReactElement;
