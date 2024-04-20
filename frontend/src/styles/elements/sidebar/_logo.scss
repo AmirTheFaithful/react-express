@@ -1,6 +1,17 @@
 @use "../../common";
 
+.logo-container {
+  @include common.centerFlex(row);
+
+  .expand-button {
+    border: none;
+    background-color: transparent;
+  }
+}
+
 .logo {
+  @include common.centerFlex(column);
+
   padding: common.$primary-size;
   padding-bottom: 0;
 
@@ -14,5 +25,21 @@
     font-weight: 700;
     font-family: "Bebas Neue";
     letter-spacing: 0.25em;
+  }
+}
+
+/* Hidden on mobile/tablet screens until sidebar is collapsed */
+
+// Mobile / Tablet
+@media only screen and (max-width: 992px) {
+  .logo {
+    visibility: hidden;
+  }
+}
+
+// PC / TV
+@media only screen and (min-width: 992px) {
+  .logo {
+    visibility: visible;
   }
 }

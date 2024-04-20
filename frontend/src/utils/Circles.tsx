@@ -16,6 +16,7 @@ const generateCircles = (count: number): Array<ReactElement> => {
     "orange",
   ];
   const sizes: number[] = [40, 60, 80];
+  const margins: number[] = [30, 50, 60];
   const circles: ReactElement[] = [];
 
   for (let i: number = 0; i <= count; i++) {
@@ -41,7 +42,7 @@ const generateCircles = (count: number): Array<ReactElement> => {
 };
 
 const Circles = (): ReactElement => {
-  const circles: ReactElement[] = generateCircles(6);
+  const circles: ReactElement[] = generateCircles(12);
 
   return (
     <Fragment>

@@ -1,0 +1,20 @@
+@use "../../common";
+
+button {
+  @include common.addShadow(36px, #b4b4b4);
+
+  position: absolute;
+
+  top: 50%;
+  right: -25px;
+
+  color: #a7a7a7;
+  backdrop-filter: blur(26px);
+  background-color: rgba(200, 225, 255, 0.3);
+
+  cursor: pointer;
+  padding: 0.5em;
+
+  border: none;
+  border-radius: 100%;
+}

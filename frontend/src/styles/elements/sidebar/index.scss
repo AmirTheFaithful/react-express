@@ -2,39 +2,41 @@
 
 @import "./logo";
 @import "./item";
+@import "./button";
 
 .sidebar {
+  @include common.addShadow(36px, #d4d4d4);
+
   position: absolute;
 
-  width: 6vw;
-  height: 100vh;
+  min-height: 100%;
 
   transition-duration: 0.4s;
   transition-property: width;
   transition-timing-function: ease-in-out;
 
-  overflow-x: hidden;
+  // overflow-x: hidden;
 
   #{&}-background {
     @include common.flex(column);
-
     justify-content: space-between;
 
     height: 100%;
+    overflow-y: hidden;
   }
 
   #{&}-contents {
     @include common.flex(column);
-    row-gap: 6rem;
 
     backdrop-filter: blur(26px);
     background-color: rgba(200, 225, 255, 0.3);
 
     height: 100%;
     padding: common.$primary-size;
+    overflow-x: visible;
   }
 
-  & > div {
+  & > section {
     position: absolute;
 
     top: 0;
@@ -42,8 +44,62 @@
     right: 0;
     bottom: 0;
   }
+}
 
-  &:hover {
-    width: 6vw * 3;
+.items {
+  @include common.flex(column);
+  row-gap: 2rem;
+
+  padding: common.$primary-size;
+}
+
+/* Extra small */
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    width: 2em;
+  }
+}
+
+/* Small */
+@media only screen and (min-width: 600px) {
+  .sidebar {
+    width: 4em;
+  }
+}
+
+/* Medium */
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    width: 6em;
+  }
+}
+
+/* Large */
+@media only screen and (min-width: 992px) {
+  .sidebar {
+    width: 8em;
+  }
+}
+
+/* Extra large */
+@media only screen and (min-width: 1200px) {
+  .sidebar {
+    width: 10em;
+  }
+}
+
+.expanded-sidebar {
+  width: 20em;
+
+  .sidebar-item {
+    justify-content: space-between;
+  }
+
+  .item-title {
+    display: block;
+
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: "Open Sans";
   }
 }

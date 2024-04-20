@@ -5,16 +5,19 @@ import Badge from "../../utils/Badge";
 import "../../styles/elements/sidebar/index.scss";
 
 type Props = {
-  content: ReactElement;
+  icon: ReactElement;
+  title: string;
 };
 
-const SidebarItem: FC<Props> = ({ content }): ReactElement => {
+const SidebarItem: FC<Props> = ({ icon, title }): ReactElement => {
   return (
-    <li className="sidebar-item">
+    <li data-title={title} className="sidebar-item">
       <div className="icon">
-        {content}
+        {icon}
         <Badge bg="red" text="white" count={1} />
       </div>
+
+      <p className="item-title">{title}</p>
     </li>
   );
 };

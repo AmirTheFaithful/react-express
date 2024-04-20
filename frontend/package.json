@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "axios": "^1.6.8"
+    "axios": "^1.6.8",
+    "react-icons": "^5.0.1"
   }
 }
