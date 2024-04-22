@@ -14,6 +14,7 @@ const generateCircles = (count: number): Array<ReactElement> => {
     "purple",
     "magenta",
     "orange",
+    "#bfff00",
   ];
   const sizes: number[] = [40, 60, 80];
   const margins: number[] = [30, 50, 60];

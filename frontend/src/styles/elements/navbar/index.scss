@@ -1,0 +1,13 @@
+@use "../../common";
+
+.navbar {
+  @include common.flex(row);
+  align-items: center;
+
+  float: right;
+
+  width: 65%;
+  height: 7em;
+
+  // background-color: #e6ff44;
+}

@@ -1,0 +1,39 @@
+@use "../../common";
+
+.searchbar {
+  display: flex;
+
+  // It occuppies half of the navbar
+  width: 50%;
+
+  margin-top: 2rem;
+  border-radius: 12rem;
+
+  // Standard shadow
+  @include common.addShadow(36px, #b4b4b4);
+
+  .input {
+    // Different paddings
+    @include common.padding-x(3rem);
+    @include common.padding-y(1rem);
+
+    font-size: 3rem;
+
+    // The input holds average of the searchbar
+    width: 85%;
+
+    // Right-side roundings
+    border-top-left-radius: 12rem;
+    border-bottom-left-radius: 12rem;
+  }
+
+  // A small button (which is actually a div)
+  .button {
+    // It's a centered flexbox
+    @include common.centerFlex(row);
+
+    width: 15%;
+
+    cursor: pointer;
+  }
+}

@@ -1,12 +1,14 @@
 import { ReactElement, Fragment } from "react";
 
-// Custom components
+// Custom elements
 import Sidebar from "./elements/sidebar";
+import Navbar from "./elements/navbar";
 
 function App(): ReactElement {
   return (
     <Fragment>
       <Sidebar />
+      <Navbar />
     </Fragment>
   );
 }

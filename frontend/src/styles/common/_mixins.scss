@@ -13,6 +13,16 @@
   justify-content: center;
 }
 
+@mixin padding-y($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin padding-x($value) {
+  padding-left: $value;
+  padding-bottom: $value;
+}
+
 @mixin addShadow($blur, $color) {
   box-shadow: 4px 6px $blur $color;
 }
