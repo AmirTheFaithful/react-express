@@ -56,35 +56,54 @@
 /* Extra small */
 @media only screen and (max-width: 600px) {
   .sidebar {
-    width: 2em;
+    width: 6em;
+  }
+
+  // On extra small screens items are gone, on non-expanded sidebar
+  .items {
+    display: none;
+  }
+
+  // But on expanded sidebar, items are present
+  .expanded-sidebar {
+    .items {
+      @include common.flex(column);
+      row-gap: 2rem;
+    }
   }
 }
 
 /* Small */
 @media only screen and (min-width: 600px) {
   .sidebar {
-    width: 4em;
+    width: 8em;
+  }
+
+  // Starting from at least 600px wided screens, items are back
+  .items {
+    @include common.flex(column);
+    row-gap: 2rem;
   }
 }
 
 /* Medium */
 @media only screen and (min-width: 768px) {
   .sidebar {
-    width: 6em;
+    width: 10em;
   }
 }
 
 /* Large */
 @media only screen and (min-width: 992px) {
   .sidebar {
-    width: 8em;
+    width: 12em;
   }
 }
 
 /* Extra large */
 @media only screen and (min-width: 1200px) {
   .sidebar {
-    width: 10em;
+    width: 14em;
   }
 }
 
