@@ -13,12 +13,6 @@
   @include common.addShadow(36px, #b4b4b4);
 
   .input {
-    // Different paddings
-    @include common.padding-x(3rem);
-    @include common.padding-y(1rem);
-
-    font-size: 3rem;
-
     // The input holds average of the searchbar
     width: 85%;
 
@@ -35,5 +29,90 @@
     width: 15%;
 
     cursor: pointer;
+  }
+}
+
+// Extra small
+@media only screen and (max-width: 600px) {
+  .searchbar {
+    width: 70%;
+  }
+
+  .input {
+    @include common.padding-x(1.2rem);
+    @include common.padding-y(0.5rem);
+    font-size: 1.2rem;
+  }
+
+  .button {
+    padding: 6px;
+  }
+}
+
+// Small
+@media only screen and (min-width: 600px) {
+  .searchbar {
+    width: 80%;
+  }
+
+  .input {
+    @include common.padding-x(1.5rem);
+    @include common.padding-y(0.5rem);
+    font-size: 1.2rem;
+  }
+
+  .button {
+    padding: 10px;
+  }
+}
+
+// Medium
+@media only screen and (min-width: 768px) {
+  .searchbar {
+    width: 70%;
+  }
+
+  .input {
+    @include common.padding-x(2rem);
+    @include common.padding-y(1rem);
+    font-size: 1.6rem;
+  }
+
+  .button {
+    padding: 13px;
+  }
+}
+
+// Large
+@media only screen and (min-width: 992px) {
+  .searchbar {
+    width: 75%;
+  }
+
+  .input {
+    @include common.padding-x(2.5rem);
+    @include common.padding-y(1rem);
+    font-size: 1.8rem;
+  }
+
+  .button {
+    padding: 14px;
+  }
+}
+
+// Extra large
+@media only screen and (min-width: 1200px) {
+  .searchbar {
+    width: 70%;
+  }
+
+  .input {
+    @include common.padding-x(2rem);
+    @include common.padding-y(0.5rem);
+    font-size: 2rem;
+  }
+
+  .button {
+    padding: 16px;
   }
 }
